@@ -1,0 +1,367 @@
+@import "https://fonts.googleapis.com/css?family=Roboto+Condensed:300";
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/*.chatcontainer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 500px;
+    -webkit-box-shadow: 10px 10px 0 #c746e8;
+    box-shadow: 10px 10px 0 #c746e8;
+    background-color: #fff;
+}*/
+
+.small {
+    font-size: 0.75em;
+    line-height: 1.5em;
+}
+
+.disabled {
+    color: #c4c4c4;
+}
+
+.chat-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    /*padding: 30px;*/
+    height: 400px;
+    /*overflow-y: auto;*/
+    /*max-width: 450px;*/
+    /*margin: 50px auto;*/
+}
+
+.bubble {
+    position: relative;
+    width: auto;
+    max-width: 350px;
+    margin-bottom: 20px;
+    padding: 20px 40px;
+    border-radius: 25px;
+    -webkit-box-shadow: 5px 5px 0 #eee;
+    box-shadow: 5px 5px 0 #eee;
+    font-weight: 300;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-animation-name: scaleAll;
+    animation-name: scaleAll;
+    -webkit-animation-duration: 0.35s;
+    animation-duration: 0.35s;
+    -webkit-animation-timing-function: cubic-bezier(0, 0.51, 0.31, 1.51);
+    animation-timing-function: cubic-bezier(0, 0.51, 0.31, 1.51);
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    font-size: 20px;
+}
+.bubble-right {
+    margin-left: auto;
+    border-bottom-right-radius: 0px;
+    background-color: white;
+    color: black;
+    -webkit-transform-origin: bottom right;
+    transform-origin: bottom right;
+    margin-right: 15px;
+}
+.bubble-left {
+    margin-left: 10px;
+    margin-right: auto;
+    border-top-left-radius: 0px;
+    background-color: white;
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+}
+.bubble-left + .bubble-left {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.bubble-left + .bubble-left + .bubble-left {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.bubble .dot {
+    margin: 0 2px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: rgba(199, 70, 232, 0.7);
+    line-height: 1em;
+    display: inline-block;
+    -webkit-animation-name: bouncyBlink;
+    animation-name: bouncyBlink;
+    -webkit-animation-duration: 0.9s;
+    animation-duration: 0.9s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+.bubble .dot:nth-child(2) {
+    animation-delay: 0.1s;
+    -webkit-animation-delay: 0.1s;
+}
+.bubble .dot:nth-child(3) {
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+}
+
+.input-control {
+    padding: 15px 20px;
+    font-family: "Roboto Condensed", sans-serif;
+    border-radius: 3px;
+    border: none;
+    font-size: 1em;
+}
+
+.input-button {
+    background-color: #c746e8;
+    color: #fff;
+    -webkit-transition: 0.35s;
+    transition: 0.35s;
+    cursor: pointer;
+}
+.input-button:hover {
+    background-color: #d573ee;
+}
+
+.chat-input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #f0cef9;
+}
+.chat-input .input-text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 80%;
+    flex: 1 80%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.chat-input .input-button {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+@-webkit-keyframes scaleAll {
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleAll {
+    from {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes bouncyBlink {
+    0%, 45%, 100% {
+        background-color: rgba(199, 70, 232, 0.5);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    25% {
+        background-color: #c746e8;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    35% {
+        background-color: rgba(199, 70, 232, 0.75);
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+}
+@keyframes bouncyBlink {
+    0%, 45%, 100% {
+        background-color: rgba(199, 70, 232, 0.5);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    25% {
+        background-color: #c746e8;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    35% {
+        background-color: rgba(199, 70, 232, 0.75);
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+}
+
+body {
+    /*font-family: "Helvetica Neue";*/
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.from-me {
+    position: relative;
+    padding: 10px 20px;
+    color: white;
+    background: #8a73bf;
+    border-radius: 25px;
+    float: right;
+}
+.from-me:before {
+/*    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -2px;
+    right: -7px;
+    height: 20px;
+    border-right: 20px solid #0B93F6;
+    border-bottom-left-radius: 16px 14px;
+    -webkit-transform: translate(0, -2px);*/
+    border-color: transparent #eee #eee transparent;
+    border-style: solid;
+    border-width: 10px;
+    content: '';
+    display: block;
+    height: 0;
+    /* left: -10px; */
+    position: absolute;
+    /* top: 0px; */
+    width: 0;
+    right: -5px;
+    bottom: -5px;
+    /* border-radius: 0px; */
+
+}
+.from-me:after {
+/*    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    right: -56px;
+    width: 26px;
+    height: 20px;
+    background: white;
+    border-bottom-left-radius: 10px;
+    -webkit-transform: translate(-30px, -2px);*/
+    border-color: transparent transparent #eee #eee;
+    border-style: solid;
+    border-width: 5px;
+    content:'';
+    display:block;
+    height:0;
+    /*left:-10px;*/
+    position:absolute;
+    /*top:0px;*/
+    width:0;
+    right: -15px;
+    bottom: -5px;
+
+}
+
+.from-them {
+    position: relative;
+    padding: 10px 20px;
+    background: #E5E5EA;
+    /*border-radius: 25px;*/
+    color: #5b4392;
+    float: left;
+}
+.from-them:before {
+/*    content: "";
+    position: absolute;
+    z-index: 2;
+    bottom: -2px;
+    left: -7px;
+    height: 20px;
+    border-left: 20px solid #E5E5EA;
+    border-bottom-right-radius: 16px 14px;
+    -webkit-transform: translate(0, -2px);*/
+}
+.from-them:after {
+/*    content: "";
+    position: absolute;
+    z-index: 3;
+    bottom: -2px;
+    left: 4px;
+    width: 26px;
+    height: 20px;
+    background: white;
+    border-bottom-right-radius: 10px;
+    -webkit-transform: translate(-30px, -2px);*/
+    border-color: #E5E5EA #E5E5EA transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    content:'';
+    display:block;
+    height:0;
+    left:-10px;
+    position:absolute;
+    top:0px;
+    width:0;
+}
+
+@font-face {
+    font-family: 'LotteMartHappy';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LotteMartHappy';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');
+}
+
+.lottemarthappy * {
+    font-family: 'LotteMartHappy', sans-serif;
+}
+
+.normal {
+    font-style: normal;
+}
+
+.w300 {
+    font-weight: 300;
+}
+
+.w400 {
+    font-weight: 400;
+}
+
+.w500 {
+    font-weight: 500;
+}
+
+.w700 {
+    font-weight: 700;
+}
+
+.w800 {
+    font-weight: 800;
+}
+
+.w900 {
+    font-weight: 900;
+}
